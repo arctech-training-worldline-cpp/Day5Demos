@@ -1,0 +1,38 @@
+LoginInfo Form::DisplayLogin(short left, short top)
+{
+    SetColor();
+
+    int row = top;
+    
+    DisplayTextAt("= Login =====================", left, row++);
+    DisplayTextAt("|                           |", left, row++);
+    DisplayTextAt("|  UserName: ____________   |", left, row++);
+    DisplayTextAt("|  Password: ____________   |", left, row++);
+    DisplayTextAt("|                           |", left, row++);
+    DisplayTextAt("=============================", left, row++);
+
+    LoginInfo loginInfo;
+
+    loginInfo.UserName = ReadTextAt(left + 13, top + 2);
+    loginInfo.Password = ReadTextAt(left + 13, top + 3);
+
+    ResetColor();
+
+    return loginInfo;
+}
+
+void Form::DisplayTextAt(std::string text, short left, short top)
+{
+    SetCursorPosition(left, top);
+    cout << text;
+}
+
+string Form::ReadTextAt(short left, short top)
+{
+    SetCursorPosition(left, top);
+
+    string line;
+    cin >> line;
+
+    return line;
+}
